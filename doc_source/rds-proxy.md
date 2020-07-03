@@ -297,14 +297,6 @@ aws secretsmanager create-secret \
           "Service": "rds.amazonaws.com"
         },
         "Action": "sts:AssumeRole"
-      },
-      {
-        "Sid": "",
-        "Effect": "Allow",
-        "Principal": {
-          "Service": "rds.amazonaws.com"
-        },
-        "Action": "sts:AssumeRole"
       }
     ]
   }
@@ -627,7 +619,14 @@ aws rds deregister-db-proxy-targets
 1.  Certain properties, such as the target group identifier and the database engine, are fixed\. You can't change these properties\. 
 
     Choose new settings for the properties you can modify: 
-   +  You can choose a different RDS DB instance or Aurora cluster\. 
+   +  You can choose a different 
+   
+   
+   
+   
+   
+   
+   DB instance or Aurora cluster\. 
    +  You can adjust what percentage of the maximum available connections the proxy can use\. 
    +  You can select a session pinning filter\. This setting can help reduce performance issues due to insufficient transaction\-level reuse for connections\. Using this setting requires understanding of application behavior and the circumstances under which RDS Proxy pins a session to a database connection\. 
    +  You can adjust the connection borrow timeout interval\. This setting determines how long the proxy waits for a connection to become available before returning a timeout error, when the proxy already has the maximum number of connections being used\. 
